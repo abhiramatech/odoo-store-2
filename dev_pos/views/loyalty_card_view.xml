@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_loyalty_card_form">
+      <field name="name">loyalty.card.form</field>
+      <field name="model">loyalty.card</field>
+      <field name="inherit_id" ref="loyalty.loyalty_card_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="is_integrated"/>
+            <field name="is_updated"/>
+            <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

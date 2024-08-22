@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_account_tax_Line">
+      <field name="name">account.tax.repartition.line.tree</field>
+      <field name="model">account.tax.repartition.line</field>
+      <field name="inherit_id" ref="account.tax_repartition_line_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='tag_ids']" position="after">
+            <field name="is_integrated"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

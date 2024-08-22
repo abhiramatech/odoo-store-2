@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_pos_session_form">
+      <field name="name">pos.session.form</field>
+      <field name="model">pos.session</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='config_id']" position="after">
+            <field name="is_updated"/>
+            <field name="name_session_pos"/>
+        </xpath>
+        <xpath expr="//field[@name='is_updated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='name_session_pos']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

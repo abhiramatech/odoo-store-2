@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_stock_picking_form">
+      <field name="name">stock.picking.form</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+       <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='location_dest_id'][2]" position="after">
+            <field name="target_location"/>
+            <field name="stock_type"/>
+        </xpath>
+        <xpath expr="//field[@name='origin']" position="after">
+            <field name="is_integrated"/>
+            <field name="is_closed"/>
+            <field name="vit_trxid"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vit_trxid']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='is_closed']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+         <field name="origin" position="attributes">
+            <attribute name="readonly">0</attribute>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</odoo>

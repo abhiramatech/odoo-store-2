@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_token_generate_form" model="ir.ui.view">
+        <field name="name">token.generate.form</field>
+        <field name="model">token.generate</field>
+        <field name="arch" type="xml">
+            <form string="Token Generate">
+                <header>
+                    <button name="action_generate_key" type="object" string="Generate" class="btn-primary"/>
+                    <button name="action_encrypt" type="object" string="Encrypt" class="btn-primary"/>
+                    <button name="action_decrypt" type="object" string="Decrypt" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="vit_client_name"/>
+                        <field name="vit_gen_key" readonly="1"/>
+                        <field name="vit_password"/>
+                        <field name="vit_encrypt" readonly="1"/>
+                        <field name="vit_decrypt" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_token_generate_tree" model="ir.ui.view">
+        <field name="name">token.generate.tree</field>
+        <field name="model">token.generate</field>
+        <field name="arch" type="xml">
+            <tree string="Token Generate">
+                <field name="vit_client_name"/>
+                <field name="vit_gen_key"/>
+                <field name="vit_password"/>
+                <field name="vit_encrypt"/>
+                <field name="vit_decrypt"/>
+            </tree>
+        </field>
+    </record>
+
+     <record model="ir.actions.act_window" id="action_token_generate">
+        <field name="name">Token Generate</field>
+        <field name="res_model">token.generate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_token_generate" name="Token Generate" action="action_token_generate" parent="setting_config_menu_root" sequence="10"/>
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_uom_category_form_inherit">
+      <field name="name">uom.category.form.inherit</field>
+      <field name="model">uom.category</field>
+      <field name="inherit_id" ref="uom.product_uom_categ_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name="is_integrated"/>
+            <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='uom_lines']/field[@name='uom_ids']/tree[1]/field[@name='name']" position="after">
+          <field optional="show" name="is_integrated"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='uom_lines']/field[@name='uom_ids']/tree[1]/field[@name='name']" position="after">
+          <field optional="show" name="index_store"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

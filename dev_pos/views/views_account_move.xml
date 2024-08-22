@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+  
+    <record model="ir.ui.view" id="view_account_move_form">
+      <field name="name">account.move.form</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[@name='journal_div']" position="after">
+          <field name="is_integrated"/>
+          <field name="vit_trxid"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

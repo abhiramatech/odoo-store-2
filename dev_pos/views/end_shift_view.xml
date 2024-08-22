@@ -1,0 +1,91 @@
+<odoo>
+  <data>
+    <!-- tree view -->
+    <record id="view_end_shift_session_tree" model="ir.ui.view">
+      <field name="name">end.shift.tree</field>
+      <field name="model">end.shift</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="state == 'opened'" 
+              decoration-warning="state == 'in_progress'" 
+              decoration-danger="state == 'closed'" 
+              decoration-success="state == 'finished'">
+          <field name="doc_num"/> 
+          <field name="cashier_id" string="Cashier"/>
+          <field name="session_id" string="Session"/>
+          <field name="start_date" string="Start Date"/>
+          <field name="end_date" string="End Date"/>
+          <field name="state" string="Status" widget="badge"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- form view -->
+    <record model="ir.ui.view" id="view_end_shift_session_form">
+      <field name="name">end.shift.form</field>
+      <field name="model">end.shift</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="action_start_progress" string="Start Progress" type="object" 
+                    class="oe_highlight" invisible="state not in ('opened')"/>
+            <button name="action_close" string="Close" type="object" 
+                    class="oe_highlight" invisible="state not in ('in_progress')"/>
+            <button name="action_finish" string="Finish" type="object" 
+                    class="oe_highlight" invisible="state not in ('closed')"/>
+            <field name="state" widget="statusbar" statusbar_visible="opened,in_progress,closed,finished"/>
+          </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+              <button name="action_view_pos_orders" type="object" class="oe_stat_button" icon="fa-shopping-cart">
+                <field name="pos_order_count" widget="statinfo" string="POS Orders"/>
+              </button>
+            </div>
+            <group>
+              <group string="End Of Shift">
+                <field name="doc_num"/>   
+                <field name="cashier_id" readonly="state in ('finished')"/>   
+                <field name="session_id" readonly="state in ('finished')"/>    
+                <field name="start_date" readonly="state in ('finished')"/>    
+                <field name="end_date" readonly="state in ('finished')"/>                   
+              </group>
+            </group>
+            <notebook>
+              <page string="Shift Lines">
+                <field name="line_ids" context="{'parent_state': state}">
+                  <tree editable="bottom">
+                    <field name="payment_date" width="20%" readonly="state in ('finished')"/>
+                    <field name="payment_method_id" width="20%" readonly="state in ('finished')"/>
+                    <field name="amount" width="20%" readonly="state in ('finished')"/>
+                    <field name="expected_amount" width="20%" column_invisible="context.get('parent_state') != 'finished'" readonly="state in ('finished')"/>
+                    <field name="amount_difference" width="20%" column_invisible="context.get('parent_state') != 'finished'" readonly="state in ('finished')"/>
+                    <field name="state" column_invisible="1"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_end_shift_session">
+      <field name="name">End Shift Session Cashier</field>
+      <field name="res_model">end.shift</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Child Menu -->
+    <menuitem
+      id="end_shift_menu"
+      name="Shift"
+      action="action_end_shift_session"
+      parent="point_of_sale.menu_point_of_sale"
+      sequence="10"/>
+  </data>
+</odoo>

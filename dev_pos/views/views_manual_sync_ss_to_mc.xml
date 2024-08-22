@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- form view -->
+    <record model="ir.ui.view" id="view_manual_sync_ss_to_mc_form">
+      <field name="name">manual.sync.ss.to.mc.form</field>
+      <field name="model">manual.sync.ss.to.mc</field>
+      <field name="arch" type="xml">
+        <form create="false">
+            <header>
+                <button string="Start" name="action_start" type="object" class="oe_highlight"/> 
+            </header>
+            <sheet>
+                <group>
+                    <group string="Manual Sync">
+                        <field name="store_sync"/>      
+                        <field name="date_from"/>    
+                        <field name="date_to"/>               
+                    </group>
+                    <group string="Store Server To Master Console">
+                        <field name="master_customer_to_mc"/>    
+                        <field name="master_employee_to_mc"/>    
+                        <field name="vit_session"/>    
+                        <field name="vit_invoice"/>    
+                        <field name="vit_invoice_rescue"/>    
+                        <field name="vit_internal_transfers_to_mc"/>    
+                        <field name="vit_goods_receipts_to_mc"/>    
+                        <field name="vit_goods_issue_to_mc"/>            
+                        <field name="vit_receipts_to_mc"/>            
+                        <field name="vit_inventory_adjustment_to_mc"/> 
+                        <field name="vit_ts_out"/>         
+                        <field name="vit_val_ts_in"/>         
+                        <field name="vit_val_grpo"/>         
+                        <field name="vit_val_goods_receipts"/>         
+                        <field name="vit_val_goods_issue"/>         
+                    </group>
+                </group>
+            </sheet>          
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_synchronize_ss_to_mc">
+      <field name="name">Manual Integration Store to MC</field>
+      <field name="res_model">manual.sync.ss.to.mc</field>
+      <field name="view_mode">form</field>
+    </record>
+
+    <!-- Root Menu -->
+    <!-- <menuitem
+        id="synchronize_menu"
+        name="Manual Integration"
+        sequence="1"/> -->
+
+    <!-- Child Menu -->
+    <menuitem
+        id="synchronize_ss_to_mcmenu"
+        name="Sync SS To MC"
+        action="action_synchronize_ss_to_mc"
+        parent="setting_config_menu_root"
+        sequence="1"/>
+  </data>
+</odoo>

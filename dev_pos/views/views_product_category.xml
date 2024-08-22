@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_product_category_form_inherit">
+      <field name="name">product.category.form.inherit</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="product.product_category_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='parent_id']" position="after">
+            <field name="is_integrated"/>
+            <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

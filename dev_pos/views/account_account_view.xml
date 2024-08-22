@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_account_account_tree">
+      <field name="name">account.account.tree</field>
+      <field name="model">account.account</field>
+      <field name="inherit_id" ref="account.view_account_list"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='code']" position="before">
+            <field name="is_store"/>
+        </xpath>
+        <xpath expr="//field[@name='reconcile']" position="after">
+            <field name="is_integrated"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

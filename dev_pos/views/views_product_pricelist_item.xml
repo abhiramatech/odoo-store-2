@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+  
+    <record model="ir.ui.view" id="view_product_pricelist_item_form">
+      <field name="name">product.pricelist.item.form</field>
+      <field name="model">product.pricelist.item</field>
+      <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//form/sheet/notebook/page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='date_end']" position="after">
+          <field optional="show" name="is_integrated"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

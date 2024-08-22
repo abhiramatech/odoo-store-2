@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+
+        <record id="view_master_type_tree" model="ir.ui.view">
+            <field name="name">master.type.tree</field>
+            <field name="model">master.type</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Master Type Tree">
+                    <field name="type_name"/>
+                    <field name="type_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_master_type_form">
+            <field name="name">master.type.form</field>
+            <field name="model">master.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group string="Master Type">
+                                <field name="type_name"/>
+                                <field name="type_code"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="action_master_type">
+            <field name="name">Master Type Mapping</field>
+            <field name="res_model">master.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Child Menu -->
+        <menuitem
+            id="type_master_menu"
+            name="Master Type"
+            action="action_master_type"
+            parent="setting_config_menu_root"
+            sequence="15"/>
+
+    </data>
+</odoo>
