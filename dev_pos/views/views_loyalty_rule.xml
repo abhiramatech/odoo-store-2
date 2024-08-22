@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_loyalty_rule_form">
+      <field name="name">loyalty.rule.form</field>
+      <field name="model">loyalty.rule</field>
+      <field name="inherit_id" ref="loyalty.loyalty_rule_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='reward_point_mode']" position="after">
+            <field name="vit_trxid"/>
+        </xpath>
+        <xpath expr="//field[@name='vit_trxid']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

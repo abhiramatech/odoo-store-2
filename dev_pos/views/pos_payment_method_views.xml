@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_pos_payment_method_form">
+      <field name="name">pos.payment.method.form</field>
+      <field name="model">pos.payment.method</field>
+      <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='journal_id']" position="after">
+            <field name="is_integrated"/>
+            <field name="is_updated"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

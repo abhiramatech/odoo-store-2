@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+    <!-- form view -->
+    <record model="ir.ui.view" id="view_manual_mc_to_ss_sync_form">
+      <field name="name">manual.sync.mc.to.ss.form</field>
+      <field name="model">manual.sync.mc.to.ss</field>
+      <field name="arch" type="xml">
+        <form create="false">
+            <header>
+                <button string="Start" name="action_start" type="object" class="oe_highlight"/> 
+            </header>
+            <sheet>
+                <group>
+                    <group string="Manual Sync">
+                        <field name="store_sync"/>      
+                        <field name="date_from"/>    
+                        <field name="date_to"/>               
+                    </group>
+                    <group string="Master Console To Store Server">
+                        <field name="master_item_utils"/>    
+                        <field name="master_item"/>    
+                        <field name="master_customer"/>    
+                        <field name="master_location"/>    
+                        <field name="master_pricelist"/>    
+                        <field name="master_operation_type"/>    
+                        <field name="master_discount"/>    
+                        <field name="update_discount"/>    
+                        <field name="master_voucher"/>    
+                        <field name="update_voucher_mc"/>    
+                        <field name="update_voucher_store"/>    
+                        <field name="master_pos_utility"/>    
+                        <field name="list_warehouse"/>    
+                        <field name="vit_internal_transfers"/>            
+                        <field name="vit_goods_issue"/>                      
+                        <field name="vit_goods_receipts"/>            
+                        <field name="vit_receipts_to_ss"/>            
+                        <field name="vit_ts_in"/>                      
+                        <field name="vit_po"/>                      
+                        <field name="vit_val_inv"/>                      
+                        <field name="vit_val_goods_receipts"/>                      
+                        <field name="vit_val_goods_issue"/>                      
+                        <field name="vit_val_ts_out"/>                      
+                    </group>
+                </group>
+            </sheet>          
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_synchronize_mc_to_ss">
+      <field name="name">Manual Integration MC to Store</field>
+      <field name="res_model">manual.sync.mc.to.ss</field>
+      <field name="view_mode">form</field>
+    </record>
+
+    <!-- Child Menu -->
+    <menuitem
+        id="synchronize_mc_to_ss_menu"
+        name="Sync MC To SS"
+        action="action_synchronize_mc_to_ss"
+        parent="setting_config_menu_root"
+        sequence="2"/>
+  </data>
+</odoo>

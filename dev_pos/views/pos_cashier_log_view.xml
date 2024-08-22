@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+
+  <!-- tree view -->
+  <record id="view_pos_cashier_log_tree" model="ir.ui.view">
+      <field name="name">pos.cashier.log.tree</field>
+      <field name="model">pos.cashier.log</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="employee_id"/>
+          <field name="timestamp"/>
+          <field name="session_id"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- form view -->
+    <record model="ir.ui.view" id="view_pos_cashier_log_form">
+      <field name="name">pos.cashier.log.form</field>
+      <field name="model">pos.cashier.log</field>
+      <field name="arch" type="xml">
+        <form>
+            <header>
+                <button name="action_close" string="Close" type="object" 
+                        class="oe_highlight" invisible="state not in ('opened')"/>
+                <field name="state" widget="statusbar" statusbar_visible="opened,closed"/>
+            </header>
+            <sheet>
+                <group>
+                    <group string="PoS Cashier Log">
+                        <field name="employee_id"/>
+                        <field name="timestamp"/>
+                        <field name="session_id"/>                    
+                    </group>
+                </group>
+            </sheet>          
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_pos_cashier_log">
+      <field name="name">PoS Cashier Log</field>
+      <field name="res_model">pos.cashier.log</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Child Menu -->
+    <menuitem
+        id="pos_cashier_log_menu"
+        name="Cashier Log"
+        action="action_pos_cashier_log"
+        parent="point_of_sale.menu_point_of_sale"
+        sequence="11"/>
+  </data>
+</odoo>
