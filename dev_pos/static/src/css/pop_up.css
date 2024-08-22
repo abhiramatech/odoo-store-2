@@ -1,0 +1,55 @@
+.book-order-popup {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-order-popup header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.book-order-popup header h2 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.popup-content {
+    padding: 20px;
+}
+
+.input-field {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.footer {
+    text-align: right;
+    padding: 10px;
+}
+
+.button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.confirm {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.cancel {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}

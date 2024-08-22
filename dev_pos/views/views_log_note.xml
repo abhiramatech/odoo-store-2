@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_log_note_tree">
+      <field name="name">log.note.tree</field>
+      <field name="model">log.note</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="vit_doc_type" string="Document Type"/>
+            <field name="vit_trx_key" string="Transaction Key"/>
+            <field name="vit_trx_date" string="Transaction Date"/>
+            <field name="vit_sync_date" string="Sync Date"/>
+            <field name="vit_sync_status" string="Sync Status"/>
+            <field name="vit_sync_desc" string="Sync Description"/>
+            <field name="vit_start_sync" string="Start Sync"/>
+            <field name="vit_end_sync" string="End Sync"/>
+            <field name="vit_duration" string="Duration"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="log_note_action" model="ir.actions.act_window">
+    <field name="name">Log Note</field>
+    <field name="res_model">log.note</field>
+    <field name="view_mode">tree</field>
+    </record>
+  </data>
+</odoo>

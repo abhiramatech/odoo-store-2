@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_pos_category_form_inherit">
+      <field name="name">pos.category.form.inherit</field>
+      <field name="model">pos.category</field>
+      <field name="inherit_id" ref="point_of_sale.product_pos_category_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='sequence']" position="after">
+            <field name="is_integrated"/>
+            <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

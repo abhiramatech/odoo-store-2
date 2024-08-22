@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_ir_sequence_form_inherit">
+      <field name="name">ir.sequence.form.inherit</field>
+      <field name="model">ir.sequence</field>
+      <field name="inherit_id" ref="base.sequence_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='implementation']" position="after">
+            <field name="is_from_operation_types"/>
+            <field name="is_integrated"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

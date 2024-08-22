@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_token_list_license" model="ir.ui.view">
+        <field name="name">list.license.form</field>
+        <field name="model">list.license</field>
+        <field name="arch" type="xml">
+            <form string="List License">
+                <header>
+                    <button name="action_apply_license" type="object" string="Apply" class="btn-primary"/>
+                </header>
+                <sheet style="width: 70%;">
+                    <group>
+                        <group>
+                            <field name="vit_cust_id"/>
+                            <field name="vit_total_user"/>
+                            <field name="vit_mac_address"/>
+                            <field name="vit_license_key"/>
+                        </group>
+                        <notebook>
+                            <page string="License Input">
+                                <field name="vit_input_license" style="width: 50%;"/>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Tree View -->
+    <record id="view_list_license_tree" model="ir.ui.view">
+        <field name="name">list.license.tree</field>
+        <field name="model">list.license</field>
+        <field name="arch" type="xml">
+            <tree string="List License">
+                <field name="vit_cust_id" readonly="1"/>
+                <field name="vit_total_user"/>
+                <field name="vit_mac_address" readonly="1"/>
+                <field name="vit_license_key" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+     <record model="ir.actions.act_window" id="action_list_license">
+        <field name="name">List License</field>
+        <field name="res_model">list.license</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_list_license" name="List License" action="action_list_license" parent="setting_config_menu_root" sequence="10"/>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+
+    <!-- form view-->
+    <record model="ir.ui.view" id="view_loyalty_program_form">
+      <field name="name">loyalty.program.form</field>
+      <field name="model">loyalty.program</field>
+      <field name="inherit_id" ref="loyalty.loyalty_program_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='date_to']" position="after">
+            <field name="is_integrated"/>
+            <field name="is_updated"/>
+            <field name="index_store" widget="many2many_tags"/>
+            <field name="vit_trxid"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vit_trxid']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

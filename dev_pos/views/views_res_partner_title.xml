@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_res_partner_title_form">
+      <field name="name">res.partner.title.form</field>
+      <field name="model">res.partner.title</field>
+      <field name="inherit_id" ref="base.view_partner_title_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='shortcut']" position="after">
+            <field optional="show" name="is_integrated"/>
+            <field optional="show" name="index_store" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
