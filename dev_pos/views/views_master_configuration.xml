@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- Tampilan Daftar Awal (List View) -->
+    <record model="ir.ui.view" id="view_master_config_tree">
+      <field name="name">master.config.tree</field>
+      <field name="model">setting.config</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="vit_config_server" string="Server Selection"/>
+          <field name="vit_config_server_name" string="Server Name"/>
+          <field name="vit_config_url" string="URL"/>
+          <field name="vit_config_db" string="Database Name"/>
+          <field name="vit_config_username" string="Username"/>
+          <field name="vit_config_password" string="Password"/>
+          <field name="vit_config_password_api" string="Password API"/>
+          <field name="vit_linked_server" string="Linked Server"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Tampilan Form ketika masuk ke create atau edit -->
+    <record id="view_master_config_form" model="ir.ui.view">
+      <field name="name">master.config.form</field>
+      <field name="model">setting.config</field>
+      <field name="arch" type="xml">
+        <form create="false">
+        <header>
+          <button name="action_test_connect_button" type="object" string="Connection Test" class="oe_highlight"/>
+          <!-- <button name="action_view_connection_button" type="object" string="Connection Info" class="oe_highlight"/> -->
+          <field name="vit_state" widget="statusbar" nolabel="1"/>
+        </header>
+          <sheet>
+            <group>
+              <group string="Setting Configurasi">
+                <field name="vit_config_server" string="Server Selection"/>
+                <field name="vit_config_server_name" string="Server Name"/>
+                <field name="vit_config_url" string="URL"/>
+                <field name="vit_config_db" string="Database Name"/>
+                <field name="vit_config_username" string="Username"/>
+                <field name="vit_config_password" string="Password"/>
+                <field name="vit_config_password_api" string="Password API"/>
+                <field name="vit_linked_server" string="Linked Server"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="master_config_action" model="ir.actions.act_window">
+      <field name="name">Master Configurasi</field>
+      <field name="res_model">setting.config</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_master_config_tree"/>
+      <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_master_config_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_master_config_form')})]"/>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_uom_uom_form_inherit">
+      <field name="name">uom.uom.form.inherit</field>
+      <field name="model">uom.uom</field>
+      <field name="inherit_id" ref="uom.product_uom_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name="is_integrated"/>
+            <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

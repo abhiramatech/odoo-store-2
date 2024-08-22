@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!-- This button for booking orders -->
+    <t t-name="dev_pos.BookedOrdersButton" owl="1">
+        <div class="control-button o_pricelist_button btn btn-light rounded-0 fw-bolder"
+             t-on-click="onClick">
+            Member
+        </div>
+    </t>
+
+    <!-- Popup for booking orders -->
+    <t t-name="dev_pos.BookOrderPopup">
+        <div class="popup book-order-popup">
+            <header>
+                <h2>Member</h2>
+            </header>
+            <div class="popup-content">
+                <!-- Form fields for Name and Card Number -->
+                <input type="text" class="input-field" placeholder="Name" t-ref="nameField"/>
+                <input type="text" class="input-field" placeholder="Card Number" t-ref="cardNumberField"/>
+            </div>
+            <footer>
+                <button class="button confirm" t-on-click="confirm">Confirm</button>
+                <button class="button cancel" t-on-click="cancel">Discard</button>
+            </footer>
+        </div>
+    </t>
+
+</templates>

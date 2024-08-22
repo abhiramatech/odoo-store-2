@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_log_code_runtime_tree">
+      <field name="name">log.code.runtime.tree</field>
+      <field name="model">log.code.runtime</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="vit_code_type"/>
+            <field name="vit_start_sync"/>
+            <field name="vit_end_sync"/>
+            <field name="vit_duration"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="log_code_runtime_action" model="ir.actions.act_window">
+    <field name="name">Log Code Runtime</field>
+    <field name="res_model">log.code.runtime</field>
+    <field name="view_mode">tree</field>
+    </record>
+  </data>
+</odoo>

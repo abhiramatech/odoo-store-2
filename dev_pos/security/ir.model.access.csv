@@ -1,0 +1,12 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_log_note,access_log.note,model_log_note,base.group_user,1,1,1,1
+access_log_code_runtime,access_log.code.runtime,model_log_code_runtime,base.group_user,1,1,1,1
+access_master_type,access_master.type,model_master_type,base.group_user,1,1,1,1
+access_setting_config,access_manual.setting.config,model_setting_config,base.group_user,1,1,1,1
+access_manual_sync_mc_to_ss,access_manual.sync.mc.to.ss,model_manual_sync_mc_to_ss,base.group_user,1,1,1,1
+access_manual_sync_ss_to_mc,access_manual.sync.ss.to.mc,model_manual_sync_ss_to_mc,base.group_user,1,1,1,1
+access_token_generate,access_token.generate,model_token_generate,base.group_user,1,1,1,1
+access_list_license,access_list_license,model_list_license,base.group_user,1,1,1,1
+access_pos_cashier_log,access_pos.cashier.log,model_pos_cashier_log,base.group_user,1,1,1,1
+access_end_shift,access_end.shift,model_end_shift,base.group_user,1,1,1,1
+access_end_shift_line,access_end.shift.line,model_end_shift_line,base.group_user,1,1,1,1

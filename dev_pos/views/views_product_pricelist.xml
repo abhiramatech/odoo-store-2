@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+  
+    <record model="ir.ui.view" id="view_product_pricelist_form">
+      <field name="name">product.pricelist.form</field>
+      <field name="model">product.pricelist</field>
+      <field name="inherit_id" ref="product.product_pricelist_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='currency_id']" position="after">
+          <field name="is_integrated"/>
+          <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//form/sheet/notebook/page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='name']" position="before">
+          <field name="is_integrated"/>
+        </xpath>
+        <xpath expr="//form/sheet/notebook/page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='name']" position="before">
+          <field name="index_store" widget="many2many_tags"/>
+        </xpath>
+        <xpath expr="//form/sheet/notebook/page[@name='pricelist_rules']/field[@name='item_ids']/tree/field[@name='name']" position="before">
+          <field name="is_updated"/>
+        </xpath>
+        <xpath expr="//field[@name='is_integrated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+        <xpath expr="//field[@name='is_updated']" position="attributes">
+          <attribute name="force_save">1</attribute>
+          <attribute name="readonly">True</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
